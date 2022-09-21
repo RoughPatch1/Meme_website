@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+Meme Server</title>
+<meta name="viewport" content="width=device-width, initial-scale=0.75">
+<meta http-equiv="refresh" content="10;url=http://45.33.15.220:80" />
+<style>
+body {background-color:#000000;background-repeat:no-repeat;background-position:top left;background-attachment:fixed;}
+h1{text-align:center;font-family:Arial, sans-serif;font-size:20px;color:#ffffff;background-color:#000000;}
+h2{text-align:center;font-family:Arial, sans-serif;font-size:48px;color:#ffffff;background-color:#000000;}
+p {text-align:center;font-family:Georgia, serif;font-size:36px;font-style:normal;font-weight:normal;color:#ffffff;background-color:#000000;}
+.imgbox{display:grid;height:100%;}
+.center-fit{max-width:100%;max-height:100vh;margin:auto;}
+</style>
+</head>
+<body>
+<h1>Avi's meme server</h1>
+<h2>Pulls random meme from reddit </h2>
+<p>This will refresh in 10 seconds!</p>
+<p><span id="countdowntimer">10 </span> Seconds</p>
+
+<script type="text/javascript">
+    var timeleft = 10;
+    var downloadTimer = setInterval(function(){
+    timeleft--;
+    document.getElementById("countdowntimer").textContent = timeleft;
+    if(timeleft <= 0)
+        clearInterval(downloadTimer);
+    },1000);
+</script>
+<div class="imgbox">
+	<img class="center-fit" src="{{meme_pic}}">
+<p>Current subreddit: {{subreddit}} </p>
+</body>
+</html>
